@@ -1,0 +1,13 @@
+ASCENT RUNESCAPE 2 SERVER EMULATOR.
+
+Libraries this software uses:
+- jython2.5.2
+- mina-core-2.0.4
+- mysql-connector-java-5.1.20-bin
+- slf4j-api-1.6.6
+- slf4j-jdk14-1.6.6
+
+Be sure to have all of these in your classpath otherwise the program will not start or will crash.
+
+Credits:
+thiefmn6092
