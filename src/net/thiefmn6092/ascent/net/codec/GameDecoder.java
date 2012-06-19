@@ -15,6 +15,10 @@ public class GameDecoder extends CumulativeProtocolDecoder {
 	@Override
 	protected boolean doDecode(IoSession session, IoBuffer in,
 			ProtocolDecoderOutput out) throws Exception {
+		/*
+		 * Uncomment the following line for scripting implementation.
+		 * return ScriptManager.getSingleton().invoke("protocol_decode", session, in, out);
+		 */
 		return false;
 	}
 

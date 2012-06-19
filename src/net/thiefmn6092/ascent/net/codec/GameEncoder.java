@@ -19,7 +19,10 @@ public class GameEncoder implements ProtocolEncoder {
 	@Override
 	public void encode(IoSession session, Object message, ProtocolEncoderOutput out)
 			throws Exception {
-		
+		/*
+		 * Uncomment the following line for scripting implementation. 
+		 * ScriptManager.getSingleton().invoke("protocol_encode", session, message, out);
+		 */
 	}
 
 }
