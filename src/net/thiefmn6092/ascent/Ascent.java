@@ -1,5 +1,6 @@
 package net.thiefmn6092.ascent;
 
+import net.thiefmn6092.ascent.net.Server;
 import net.thiefmn6092.ascent.script.ScriptManager;
 
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ public class Ascent {
 		try {
 			logger.info("Initializing Ascent RuneScape 2 Server Emulator...");
 			ScriptManager.getSingleton().loadScripts("./scripts/");
+			new Server().bind(43954);
 			logger.info("Done.");
 		} catch(Exception e) {
 			logger.error("Error initializing Ascent.", e);

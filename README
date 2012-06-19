@@ -9,5 +9,17 @@ Libraries this software uses:
 
 Be sure to have all of these in your classpath otherwise the program will not start or will crash.
 
+Developing the Server:
+Generally, the core and content of Ascent is kept separate. Content added to the server should be scripted.
+You can find scripts in the ./scripts/ directory in the root directory. It is more than possible with what is
+included here to script the whole server in Python in its entirety. This means that you could have multiple
+protocol version support just by scripting it. If you were to do so, you would have to uncomment the lines
+involving the script manager in the codec and in the entity updating tasks and implement the functions invoked.
+In the future, I may provide these scripts already pre-written for you in the case that you may wish to take
+this route. For my own personal use, I've developed Ascent emulator purely for the version 317 of the RuneScape
+client. The server will function as-is without the use of scripts. This is why I've implemented the 317
+network protocol in Java as part of the core of the program. A purely-scriptable version of the server can be
+built just by exporting the core to a jar file and running it via command-line.
+
 Credits:
 thiefmn6092

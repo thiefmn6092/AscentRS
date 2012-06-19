@@ -3,7 +3,7 @@ package net.thiefmn6092.ascent.net;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
-import net.thiefmn6092.ascent.net.codec.CodecFactory;
+import net.thiefmn6092.ascent.net.codec.GameCodecFactory;
 
 import org.apache.mina.core.filterchain.IoFilter;
 import org.apache.mina.core.service.IoAcceptor;
@@ -43,7 +43,7 @@ public class Server {
 	/**
 	 * The MINA codec factory.
 	 */
-	public static final IoFilter CODEC_FACTORY = new ProtocolCodecFilter(new CodecFactory());
+	public static final IoFilter CODEC_FACTORY = new ProtocolCodecFilter(new GameCodecFactory());
 	
 	/**
 	 * Creates a new Server instance.

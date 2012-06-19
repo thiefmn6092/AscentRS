@@ -10,7 +10,7 @@ import org.apache.mina.filter.codec.ProtocolEncoder;
  * @author thiefmn6092
  *
  */
-public class CodecFactory implements ProtocolCodecFactory {
+public class GameCodecFactory implements ProtocolCodecFactory {
 
 	@Override
 	public ProtocolDecoder getDecoder(IoSession session) throws Exception {
