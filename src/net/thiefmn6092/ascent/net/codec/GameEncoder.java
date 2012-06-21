@@ -6,8 +6,9 @@ import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 
 /**
  * Encodes outgoing packets into an {@link org.apache.mina.core.buffer.IoBuffer}
+ * 
  * @author thiefmn6092
- *
+ * 
  */
 public class GameEncoder implements ProtocolEncoder {
 
@@ -17,11 +18,13 @@ public class GameEncoder implements ProtocolEncoder {
 	}
 
 	@Override
-	public void encode(IoSession session, Object message, ProtocolEncoderOutput out)
-			throws Exception {
+	public void encode(IoSession session, Object message,
+			ProtocolEncoderOutput out) throws Exception {
 		/*
-		 * Uncomment the following line for scripting implementation. 
+		 * Uncomment the following line for scripting implementation.
+		 * 
 		 * ScriptManager.getSingleton().invoke("protocol_encode", session, message, out);
+		 * 
 		 */
 	}
 

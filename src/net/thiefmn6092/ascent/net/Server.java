@@ -15,36 +15,39 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Initializes the MINA {@link org.apache.mina.core.service.IoAcceptor}.
+ * 
  * @author thiefmn6092
- *
+ * 
  */
 public class Server {
-	
+
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
 	private final Logger logger = LoggerFactory.getLogger(Server.class);
-	
+
 	/**
 	 * The socket acceptor.
 	 */
 	private IoAcceptor acceptor = new NioSocketAcceptor();
-	
+
 	/**
 	 * The server handler.
 	 */
 	public static final ServerHandler SERVER_HANDLER = new ServerHandler();
-	
+
 	/**
 	 * The connection throttle filter.
 	 */
-	public static final IoFilter THROTTLE_FILTER = new ConnectionThrottleFilter(1000);
-	
+	public static final IoFilter THROTTLE_FILTER = new ConnectionThrottleFilter(
+			1000);
+
 	/**
 	 * The MINA codec factory.
 	 */
-	public static final IoFilter CODEC_FACTORY = new ProtocolCodecFilter(new GameCodecFactory());
-	
+	public static final IoFilter CODEC_FACTORY = new ProtocolCodecFilter(
+			new GameCodecFactory());
+
 	/**
 	 * Creates a new Server instance.
 	 */
@@ -54,12 +57,15 @@ public class Server {
 		acceptor.getFilterChain().addLast("codec_factory", CODEC_FACTORY);
 		acceptor.setHandler(SERVER_HANDLER);
 	}
-	
+
 	/**
 	 * Binds the socket acceptor to a port.
-	 * @param port The port to bind the acceptor to.
+	 * 
+	 * @param port
+	 *            The port to bind the acceptor to.
 	 * @return This instance, for method chaining.
-	 * @throws IOException If the port has already been bound.
+	 * @throws IOException
+	 *             If the port has already been bound.
 	 */
 	public Server bind(int port) throws IOException {
 		logger.info("Binding socket acceptor to port: " + port + "...");

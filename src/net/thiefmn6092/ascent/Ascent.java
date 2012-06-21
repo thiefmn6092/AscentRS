@@ -8,11 +8,12 @@ import org.slf4j.LoggerFactory;
 
 /**
  * The main class.
+ * 
  * @author thiefmn6092
- *
+ * 
  */
 public class Ascent {
-	
+
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
@@ -20,7 +21,9 @@ public class Ascent {
 
 	/**
 	 * The JVM entry point.
-	 * @param args The command-line arguments.
+	 * 
+	 * @param args
+	 *            The command-line arguments.
 	 */
 	public static void main(String[] args) {
 		try {
@@ -29,7 +32,7 @@ public class Ascent {
 			new Server().bind(43954);
 			Engine.class.newInstance();
 			logger.info("Done.");
-		} catch(Exception e) {
+		} catch (Exception e) {
 			logger.error("Error initializing Ascent.", e);
 		}
 	}

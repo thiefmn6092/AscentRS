@@ -10,26 +10,29 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Holds the global executor services.
+ * 
  * @author theifmn6092
- *
+ * 
  */
 public class Engine {
-	
+
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(Engine.class);
-	
+
 	/**
 	 * The service for executing tasks related to the actual game.
 	 */
-	public static final ScheduledExecutorService LOGIC_SERVICE = Executors.newSingleThreadScheduledExecutor();
+	public static final ScheduledExecutorService LOGIC_SERVICE = Executors
+			.newSingleThreadScheduledExecutor();
 
 	/**
 	 * The service for executing tasks in parallel.
 	 */
-	public static final ThreadPoolExecutor TASK_SERVICE = (ThreadPoolExecutor) Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-	
+	public static final ThreadPoolExecutor TASK_SERVICE = (ThreadPoolExecutor) Executors
+			.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+
 	static {
 		/*
 		 * Schedule various tasks here.
@@ -42,5 +45,5 @@ public class Engine {
 			}
 		}, 0, 15, TimeUnit.MINUTES);
 	}
-	
+
 }

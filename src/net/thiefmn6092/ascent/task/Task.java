@@ -11,28 +11,32 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A unit of work that is run on the task service in parallel.
+ * 
  * @author thiefmn6092
- *
+ * 
  */
 public abstract class Task implements Runnable {
-	
+
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
 	private final Logger logger = LoggerFactory.getLogger(Task.class);
-	
+
 	/**
-	 * The {@link java.util.concurrent.CountDownLatch} instance used for blocking.
+	 * The {@link java.util.concurrent.CountDownLatch} instance used for
+	 * blocking.
 	 */
 	private final Collection<CountDownLatch> latches;
-	
+
 	/**
 	 * Creates a new Task.
-	 * @param latche The {@link java.util.concurrent.CountDownLatch} instance.
+	 * 
+	 * @param latche
+	 *            The {@link java.util.concurrent.CountDownLatch} instance.
 	 */
 	public Task(CountDownLatch... latches) {
 		List<CountDownLatch> latchList = new ArrayList<CountDownLatch>();
-		for(CountDownLatch latch : latches) {
+		for (CountDownLatch latch : latches) {
 			latchList.add(latch);
 		}
 		this.latches = Collections.unmodifiableCollection(latchList);
@@ -42,15 +46,15 @@ public abstract class Task implements Runnable {
 	public void run() {
 		try {
 			execute();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			logger.error("Exception caught while executing task!", e);
 		} finally {
-			for(CountDownLatch latch : latches) {
+			for (CountDownLatch latch : latches) {
 				latch.countDown();
 			}
 		}
 	}
-	
+
 	/**
 	 * Executes the Task.
 	 */
