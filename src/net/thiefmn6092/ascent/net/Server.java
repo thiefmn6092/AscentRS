@@ -38,7 +38,7 @@ public class Server {
 	/**
 	 * The connection throttle filter.
 	 */
-	public static final IoFilter THROTTLE_FILTER = new ConnectionThrottleFilter(10000);
+	public static final IoFilter THROTTLE_FILTER = new ConnectionThrottleFilter(1000);
 	
 	/**
 	 * The MINA codec factory.

@@ -18,7 +18,7 @@ public class Engine {
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
-	private static final Logger LOGGER = LoggerFactory.getLogger(Engine.class);
+	private static final Logger logger = LoggerFactory.getLogger(Engine.class);
 	
 	/**
 	 * The service for executing tasks related to the actual game.
@@ -37,7 +37,7 @@ public class Engine {
 		LOGIC_SERVICE.scheduleAtFixedRate(new Runnable() {
 			@Override
 			public void run() {
-				LOGGER.info("Performing garbage collection...");
+				logger.info("Performing garbage collection...");
 				System.gc();
 			}
 		}, 0, 15, TimeUnit.MINUTES);

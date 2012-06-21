@@ -13,9 +13,19 @@ public enum LoginState {
 	READ_OPCODE,
 	
 	/*
-	 * When the information between client in server is exchanged. 
+	 * The server reads the derived name hash from the client and then sends a response. 
 	 */
-	EXCHANGE_INFO,
+	INITIAL_RESPONSE,
+	
+	/*
+	 * Before RSA encryption. The code in the client is deceiving.
+	 */
+	PRE_RSA,
+	
+	/*
+	 * After RSA encryption.
+	 */
+	POST_RSA,
 	
 	/*
 	 * When the login block has been decoded. 
