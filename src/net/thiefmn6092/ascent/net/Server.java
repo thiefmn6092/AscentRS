@@ -24,7 +24,7 @@ public class Server {
 	/**
 	 * The SLF4J {@link org.slf4j.Logger} instance.
 	 */
-	private final Logger logger = LoggerFactory.getLogger(Server.class);
+	private static final Logger logger = LoggerFactory.getLogger(Server.class);
 
 	/**
 	 * The socket acceptor.

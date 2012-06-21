@@ -30,7 +30,7 @@ public class Ascent {
 			logger.info("Initializing Ascent RuneScape 2 Server Emulator...");
 			ScriptManager.getSingleton().loadScripts("./scripts/");
 			new Server().bind(43954);
-			Engine.class.newInstance();
+			Engine.getSingleton();
 			logger.info("Done.");
 		} catch (Exception e) {
 			logger.error("Error initializing Ascent.", e);

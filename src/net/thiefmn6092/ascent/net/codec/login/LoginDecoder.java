@@ -66,7 +66,6 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 		case READ_OPCODE:
 			if (in.remaining() >= 1) {
 				int opcode = in.get() & 0xff;
-				logger.info("opcode: " + opcode);
 				switch (opcode) {
 				case OPCODE_LOGIN:
 					session.setAttribute("login_state",
@@ -105,7 +104,7 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 				 * The client then reads 8 ignored bytes.
 				 * 
 				 * for(int j = 0; j < 8; j++)
-				 * 		socketStream.read();
+				 * 	socketStream.read();
 				 * 
 				 * These are used to maintain a connection with the server.
 				 * 
@@ -158,9 +157,10 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 				 * 18 - reconnection.
 				 * 
 				 * if(flag)
-				 * 		aStream_847.writeWordBigEndian(18);
+				 * 	aStream_847.writeWordBigEndian(18);
 				 * else
-				 * 		aStream_847.writeWordBigEndian(16);
+				 * 	aStream_847.writeWordBigEndian(16);
+				 * 
 				 */
 				int opcode = in.get() & 0xff;
 				switch (opcode) {
@@ -218,7 +218,7 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 							 * Then the client sends 9 "expected CRCs".
 							 * 
 							 * for(int l1 = 0; l1 < 9; l1++)
-							 * 		aStream_847.writeDWord(expectedCRCs[l1]);
+							 * 	aStream_847.writeDWord(expectedCRCs[l1]);
 							 * 
 							 * This has something to do with the connectServer
 							 * method in the client.
@@ -323,7 +323,7 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 					 * 
 					 * stream.encryption = new ISAACRandomGen(ai);]
 					 * for(int j2 = 0; j2 < 4; j2++)
-					 * 		ai[j2] += 50;
+					 * 	ai[j2] += 50;
 					 * encryption = new ISAACRandomGen(ai);
 					 * 
 					 */
@@ -355,13 +355,13 @@ public class LoginDecoder extends CumulativeProtocolDecoder {
 				return false;
 			}
 		}
+		return false;
 		/*
 		 * Uncomment the following line for the scripting implementation.
 		 * 
 		 * return ScriptManager.getSingleton().invoke("protocol_login_decode", session, in, out);
 		 * 
 		 */
-		return false;
 	}
 
 }

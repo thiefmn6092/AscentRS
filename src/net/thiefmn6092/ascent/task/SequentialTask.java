@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import net.thiefmn6092.ascent.Engine;
+
 /**
  * A {@link Task} that consists of multiple child {@link Task}s that run in a
  * guaranteed sequence.
@@ -35,8 +37,13 @@ public class SequentialTask extends Task {
 
 	@Override
 	public void execute() {
-		for (Task task : tasks) {
-			task.run();
+		for (final Task task : tasks) {
+			Engine.getSingleton().submitTask(new Runnable() {
+				@Override
+				public void run() {
+					task.run();
+				}
+			});
 		}
 	}
 

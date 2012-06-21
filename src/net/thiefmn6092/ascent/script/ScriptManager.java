@@ -19,6 +19,11 @@ import org.slf4j.LoggerFactory;
  * 
  */
 public class ScriptManager {
+	
+	/**
+	 * The SLF4J {@link org.slf4j.Logger} instance.
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(ScriptManager.class);
 
 	/**
 	 * The ScriptManager singleton instance.
@@ -29,11 +34,6 @@ public class ScriptManager {
 	 * The {@link org.python.util.PythonInterpreter} instance.
 	 */
 	private final PythonInterpreter interpreter = new PythonInterpreter();
-
-	/**
-	 * The SLF4J {@link org.slf4j.Logger} instance.
-	 */
-	private final Logger logger = LoggerFactory.getLogger(ScriptManager.class);
 
 	/**
 	 * The number of scripts that have been loaded.

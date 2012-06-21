@@ -25,5 +25,15 @@ public class ProtocolUtils {
 		}
 		return buffer.toString();
 	}
+	
+	/**
+	 * Puts an RS2-type string.
+	 * @param out The buffer to write the string to.
+	 * @param value The string to write.
+	 */
+	public static void putRS2String(IoBuffer out, String value) {
+		out.put(value.getBytes());
+		out.put((byte) 10);
+	}
 
 }
